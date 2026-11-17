@@ -1,0 +1,15 @@
+export const questions = [
+  { key: "name", title: "你的名字", subtitle: "", type: "text", placeholder: "例如：小安" },
+  { key: "birthdate", title: "你的生日是？", subtitle: "", type: "date" },
+  { key: "submitDate", title: "今天是你填寫問卷的日子", subtitle: "系統會自動記錄提交時間，這裡請確認填寫日期", type: "date", emphasisSubtitle: true },
+  { key: "zodiac", title: "你的星座是？", subtitle: "", type: "select", options: ["牡羊座", "金牛座", "雙子座", "巨蟹座", "獅子座", "處女座", "天秤座", "天蠍座", "射手座", "摩羯座", "水瓶座", "雙魚座"] },
+  { key: "bloodType", title: "你的血型是？", subtitle: "不知道也沒關係，可以選擇不確定", type: "choice", emphasisSubtitle: true, options: ["A 型", "B 型", "O 型", "AB 型", "不確定"] },
+  { key: "maritalStatus", title: "目前的婚姻狀況？", subtitle: "請依現在的狀態選擇", type: "choice", emphasisSubtitle: true, options: ["未婚", "交往中", "已婚", "其他"] },
+  { key: "hasChildren", title: "目前有孩子嗎？", subtitle: "", type: "choice", options: ["有", "沒有", "不方便回答"] },
+  { key: "fatherJob", title: "你3~6歲的時候，爸爸的職業是？", subtitle: "", type: "text", placeholder: "例如：商業、教育、自由業" },
+  { key: "motherJob", title: "你3~6歲的時候，媽媽的職業是？", subtitle: "", type: "text", placeholder: "例如：醫療、服務、自由業" },
+  { key: "currentJob", title: "你目前的職業是？", subtitle: "也可以填寫目前的身分，例如學生、自由工作者", type: "text", placeholder: "例如：品牌企劃" },
+  { key: "siblings", title: "你是否有兄弟姐妹", subtitle: "", type: "choice", options: ["有", "沒有"] },
+  { key: "preferredTime", title: "方便預約解析的時段", subtitle: "", type: "choice", options: ["平日白天", "平日晚間", "假日白天", "假日晚間"] },
+  { key: "siblingsJobs", title: "兄弟姐妹現在的工作是？", subtitle: "", type: "text", placeholder: "例如：哥哥是工程師，妹妹是教師" },
+] as const;

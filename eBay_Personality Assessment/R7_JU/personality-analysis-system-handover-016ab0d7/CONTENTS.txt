@@ -1,0 +1,10 @@
+個人特質＆工作現況分析系統｜完整工程師交接包
+基準版本：016ab0d7
+
+本 ZIP 包含：
+- docs/：交接總覽、金鑰安全規範、接手清單、資料庫匯出手冊、資料庫備份還原演練、Email 範本、部署與系統規格文件
+- source/：不含 .git、node_modules、dist、.env、憑證檔與本機 logs 的完整原始碼
+- 原始碼可使用 pnpm install --frozen-lockfile、pnpm check、pnpm test -- --run、pnpm build 驗證
+
+安全限制：本包不含實際 secret value、production database dump、S3 access key、OAuth secret、JWT secret 或 GitHub access token。
+正式資料與金鑰必須使用加密備份與獨立安全通道另行移交。

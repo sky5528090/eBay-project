@@ -1,0 +1,8 @@
+path=/home/ubuntu/Downloads/personality-result-810001 (1).svg
+bytes=5369
+has_utf8_bom=True
+has_title=True
+has_8_cards=True
+has_pink_english=False
+has_gray_footer=False
+has_all_labels=True

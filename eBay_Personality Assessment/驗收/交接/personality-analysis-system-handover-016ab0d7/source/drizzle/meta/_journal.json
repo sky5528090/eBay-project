@@ -1,0 +1,104 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1786612065998,
+      "tag": "0000_parched_may_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1786612332446,
+      "tag": "0001_lovely_kat_farrell",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1786615243313,
+      "tag": "0002_illegal_colonel_america",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1786615411633,
+      "tag": "0003_tearful_kree",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1786615489186,
+      "tag": "0004_parched_siren",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1788344480554,
+      "tag": "0005_sticky_tomas",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1788425462342,
+      "tag": "0006_remarkable_master_chief",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1788428874357,
+      "tag": "0007_nosy_groot",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1788502962237,
+      "tag": "0008_gigantic_morgan_stark",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1788504684860,
+      "tag": "0009_brainy_energizer",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1793347613616,
+      "tag": "0010_dazzling_santa_claus",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1793771245401,
+      "tag": "0011_strong_liz_osborn",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1794191644512,
+      "tag": "0012_nappy_vengeance",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1794292783858,
+      "tag": "0013_faithful_madame_web",
+      "breakpoints": true
+    }
+  ]
+}

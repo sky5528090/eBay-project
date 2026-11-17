@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人特質＆工作現況分析</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #789DBC;
+            --accent-color: #FFE3E3;
+            --success-color: #A8D5BA;
+            --text-color: #4A4A4A;
+            --text-light: #888;
+            --bg-color: #FEF9F2;
+            --white: #FFFFFF;
+            --border-color: #E8E8E8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #FEF9F2 0%, #F5EFE7 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Main Container */
+        .main-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Landing Page */
+        .landing-page {
+            text-align: center;
+            max-width: 600px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .landing-page.hidden {
+            display: none;
+        }
+
+        .landing-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 0.6s ease-out;
+        }
+
+        .landing-page h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .landing-page p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .landing-page .highlight {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .landing-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), #5D86A8);
+            color: white;
+            padding: 16px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(120, 157, 188, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .landing-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(120, 157, 188, 0.4);
+        }
+
+        /* Card Container */
+        .card-container {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            max-height: 90vh;
+            background: var(--white);
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            animation: cardAppear 0.6s ease-out;
+        }
+
+        .card-container.hidden {
+            display: none;
+        }
+
+        /* Card Header */
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), #A8C5D8);
+            padding: 30px 25px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .card-header h1 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .card-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Progress Bar */
+        .progress-bar-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 0.5s ease;
+        }
+
+        /* Card Content */
+        .card-content {
+            flex: 1;
+            padding: 40px 30px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInContent 0.5s ease-out;
+        }
+
+        .card-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .card-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .card-content::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        /* Question */
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .question-text .required {
+            color: #E74C3C;
+            margin-left: 3px;
+        }
+
+        /* Input Fields */
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(120, 157, 188, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Options Group */
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .option:hover {
+            border-color: var(--primary-color);
+            background: rgba(120, 157, 188, 0.05);
+            transform: translateX(4px);
+        }
+
+        .option input[type="radio"],
+        .option input[type="checkbox"] {
+            margin-right: 12px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .option input[type="radio"]:checked,
+        .option input[type="checkbox"]:checked {
+            accent-color: var(--success-color);
+        }
+
+        .option.selected {
+            background: rgba(120, 157, 188, 0.1);
+            border-color: var(--primary-color);
+            transform: translateX(4px);
+        }
+
+        .option label {
+            flex: 1;
+            cursor: pointer;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Card Footer */
+        .card-footer {
+            padding: 25px 30px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 12px;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans TC', sans-serif;
+            flex: 1;
+        }
+
+        .btn-secondary {
+            background: var(--border-color);
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background: #D0D0D0;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #5D86A8);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(120, 157, 188, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Success Screen */
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 60px 30px;
+            animation: slideInContent 0.5s ease-out;
+        }
+
+        .success-screen.show {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 0.6s ease-out;
+        }
+
+        .success-screen h2 {
+            font-size: 1.5rem;
+            color: var(--success-color);
+            margin-bottom: 10px;
+        }
+
+        .success-screen p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInContent {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideOutLeft {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-out {
+            animation: slideOutLeft 0.3s ease-out !important;
+        }
+
+        .slide-in {
+            animation: slideInRight 0.3s ease-out !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card-container {
+                max-height: 100vh;
+                border-radius: 15px;
+            }
+
+            .card-header {
+                padding: 25px 20px;
+            }
+
+            .card-content {
+                padding: 30px 20px;
+            }
+
+            .card-footer {
+                padding: 20px;
+            }
+
+            .question-text {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+
+            .landing-page h1 {
+                font-size: 1.8rem;
+            }
+
+            .landing-page p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Landing Page -->
+        <div class="landing-page" id="landingPage">
+            <span class="landing-icon">🌱</span>
+            <h1>特質分析調查</h1>
+            <p>每個人都有屬於自己的天賦</p>
+            <p>與其努力成為別人，<br>不如<span class="highlight">好好認識自己</span>。</p>
+            <p>讓我陪你找到屬於自己的節奏～</p>
+            <p style="margin-top: 30px; font-size: 0.95rem;">填寫表單，讓我更認識你吧•‿•</p>
+            <button class="landing-btn" id="startBtn">開始填寫</button>
+        </div>
+
+        <!-- Form Card -->
+        <div class="card-container hidden" id="cardContainer">
+            <div class="card-header">
+                <div class="progress-indicator">
+                    <span id="currentQuestion">1</span> / <span id="totalQuestions">0</span>
+                </div>
+                <h1>特質分析</h1>
+                <p>讓我更認識你吧•‿•</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progressBar"></div>
+                </div>
+            </div>
+
+            <div class="card-content" id="cardContent">
+                <!-- Content will be inserted here -->
+            </div>
+
+            <div class="card-footer">
+                <button class="btn btn-secondary" id="prevBtn" disabled>← 上一題</button>
+                <button class="btn btn-primary" id="nextBtn">下一題 →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form Data
+        const formData = {
+            "formTitle": "個人特質＆工作現況分析",
+            "formDescription": "每個人都有屬於自己的天賦🌱\n\n與其努力成為別人，\n不如好好認識自己。\n\n讓我陪你找到屬於自己的節奏～",
+            "questions": [
+                {
+                    "id": 1144521880,
+                    "text": "📍姓名/暱稱",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": 877823944,
+                    "text": "📍生日",
+                    "type": "date",
+                    "required": true
+                },
+                {
+                    "id": 212398384,
+                    "text": "📍填寫日期",
+                    "type": "date",
+                    "required": true
+                },
+                {
+                    "id": 807906223,
+                    "text": "📍星座",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["牡羊", "金牛", "雙子", "巨蟹", "獅子", "處女", "天秤", "天蠍", "射手", "摩羯", "水瓶", "雙魚"]
+                },
+                {
+                    "id": 1560238091,
+                    "text": "📍血型",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["A", "B", "O", "AB", "其他"]
+                },
+                {
+                    "id": 191970321,
+                    "text": "📍婚姻狀況",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["已婚", "未婚", "其他"]
+                },
+                {
+                    "id": 1876384452,
+                    "text": "📍是否有子女？",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": 1465339040,
+                    "text": "📍你於3-6歲時，當時父親職業為何？",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": 752876938,
+                    "text": "📍你於3-6歲時，當時母親職業為何？",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": 66215706,
+                    "text": "📍你現在的職業與工作內容是什麼呢？做多久了呢？",
+                    "type": "textarea",
+                    "required": true
+                },
+                {
+                    "id": 708399558,
+                    "text": "📍你有幾個兄弟姐妹呢？他們現在的工作為何？",
+                    "type": "textarea",
+                    "required": true
+                },
+                {
+                    "id": 1843572944,
+                    "text": "📍方便預約解析的時段？",
+                    "type": "checkbox",
+                    "required": true,
+                    "options": ["平日白天", "平日晚間", "假日白天", "假日晚間"]
+                },
+                {
+                    "id": 796570352,
+                    "text": "🚩當要與朋友一起用餐，在選擇餐廳或吃什麼時，你通常是什麼角色？",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["決定者。意見不同時，通常是決定者", "氣氛製造者。在哪吃、吃什麼，帶動情緒氣氛", "附和者。都可以、沒有意見", "意見提供者。否決別人提議，但沒意見、不做決定"]
+                },
+                {
+                    "id": 1244902429,
+                    "text": "🚩和朋友相處時，通常會：",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["直來直往", "熱心且熱情", "君子之交淡如水", "自律"]
+                },
+                {
+                    "id": 686530478,
+                    "text": "🚩在社交場合中，你是一個：",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["主動，不在乎別人看法", "喜歡社交與款待", "彬彬有禮，不主動", "不引人注意，較少表達自己的看法"]
+                },
+                {
+                    "id": 711014533,
+                    "text": "🚩於工作中，做決定時：",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["喜歡立竿見影的結果", "喜歡大家都同意你的看法", "較重視事實且實際的情況", "做任何決定都小心謹慎"]
+                },
+                {
+                    "id": 681768626,
+                    "text": "🚩做事時，你一向：",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["以具體短期能達到的目標為主", "在乎別人對你的看法", "不喜歡改變，會覺得沒安全感", "注意細節的人"]
+                },
+                {
+                    "id": 1604274074,
+                    "text": "🚩你覺得做事的重點應該是？",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["做什麼？重結果", "誰來做？重過程", "怎麼做？重執行", "為何做？重品質"]
+                },
+                {
+                    "id": 557908870,
+                    "text": "🚩與同事間有意見不同或衝突時：",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["說服對方，聽從自己的意見", "找其他同事或上司，尋求支持", "以和為貴", "與衝突者協調"]
+                },
+                {
+                    "id": 229512581,
+                    "text": "🚩選出最符合自己的溝通方式",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["直接了當，具權威式", "表情豐富，肢體語言多", "先聽別人意見，再溫和表達自己的想法", "理多於情，愛分析、較冷靜，不透露情感"]
+                },
+                {
+                    "id": 583356811,
+                    "text": "🚩每一次會議或決議提案時，你扮演的角色是？",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["據理力爭", "協調者", "贊成多數", "分析所有提案以供參考"]
+                },
+                {
+                    "id": 8860051,
+                    "text": "🚩什麼樣的工作環境最能鼓舞你？",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["具領導地位，能讓你決定事情", "處處受歡迎，同事相處愉快", "穩定中求發展", "重品質，重效率"]
+                },
+                {
+                    "id": 927310349,
+                    "text": "🚩工作團體中，你是個喜歡：",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["激發別人採取行動", "別人鼓勵你", "按部就班", "遵守紀律"]
+                },
+                {
+                    "id": 581477530,
+                    "text": "🚩你認為哪個形容最能表現自己的特色？",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["果敢的，能接受挑戰", "生動活潑，不拘謹", "愛傾聽，喜歡穩定", "處事謹慎小心，重數據分析"]
+                },
+                {
+                    "id": 885029978,
+                    "text": "🚩朋友用一句話形容你，他們會說？",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["蠻霸道的", "熱情洋溢", "溫和斯文", "要求完美"]
+                },
+                {
+                    "id": 423749555,
+                    "text": "🚩你的消費習慣是？(不考慮金錢與收入)",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["找到要的東西，付錢走人", "隨意選擇，不特定要買什麼", "有一定的消費習慣，不喜歡變化", "較注意東西好不好，較有成本概念"]
+                },
+                {
+                    "id": 1993812062,
+                    "text": "🚩當買衣服時，你是？(不考慮金錢與收入)",
+                    "type": "radio",
+                    "required": true,
+                    "options": ["不易受銷售員影響，心中自有定見", "銷售員親切及良好感受，會促進你的購買", "找熟悉的店買", "品質及價格是否合理"]
+                }
+            ],
+            "formResponseUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdmtei2AU4Pkhf2ZgXvhiM9xcnVzBBfH9-bWwTjNauZO_MFdA/formResponse"
+        };
+
+        // State
+        let currentQuestionIndex = 0;
+        let formValues = {};
+        let formStarted = false;
+
+        // Entry ID Mapping
+        const entryMapping = {
+            1144521880: 'entry.1144521880',
+            877823944: 'entry.877823944',
+            212398384: 'entry.212398384',
+            807906223: 'entry.807906223',
+            1560238091: 'entry.1560238091',
+            191970321: 'entry.191970321',
+            1876384452: 'entry.1876384452',
+            1465339040: 'entry.1465339040',
+            752876938: 'entry.752876938',
+            66215706: 'entry.66215706',
+            708399558: 'entry.708399558',
+            1843572944: 'entry.1843572944',
+            796570352: 'entry.796570352',
+            1244902429: 'entry.1244902429',
+            686530478: 'entry.686530478',
+            711014533: 'entry.711014533',
+            681768626: 'entry.681768626',
+            1604274074: 'entry.1604274074',
+            557908870: 'entry.557908870',
+            229512581: 'entry.229512581',
+            583356811: 'entry.583356811',
+            8860051: 'entry.8860051',
+            927310349: 'entry.927310349',
+            581477530: 'entry.581477530',
+            885029978: 'entry.885029978',
+            423749555: 'entry.423749555',
+            1993812062: 'entry.1993812062'
+        };
+
+        // Start Form
+        function startForm() {
+            formStarted = true;
+            document.getElementById('landingPage').classList.add('hidden');
+            document.getElementById('cardContainer').classList.remove('hidden');
+            document.getElementById('totalQuestions').textContent = formData.questions.length;
+            renderQuestion(currentQuestionIndex);
+            updateButtons();
+        }
+
+        // Render Question
+        function renderQuestion(index) {
+            const question = formData.questions[index];
+            const cardContent = document.getElementById('cardContent');
+            cardContent.innerHTML = '';
+
+            // Check if success screen
+            if (index >= formData.questions.length) {
+                showSuccessScreen();
+                return;
+            }
+
+            const questionContainer = document.createElement('div');
+            questionContainer.className = 'slide-in';
+
+            const questionText = document.createElement('div');
+            questionText.className = 'question-text';
+            questionText.innerHTML = question.text + (question.required ? '<span class="required">*</span>' : '');
+            questionContainer.appendChild(questionText);
+
+            if (question.type === 'text') {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'form-input';
+                input.placeholder = '請輸入您的答案...';
+                input.value = formValues[question.id] || '';
+                input.required = question.required;
+                input.addEventListener('change', (e) => {
+                    formValues[question.id] = e.target.value;
+                });
+                input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        nextQuestion();
+                    }
+                });
+                questionContainer.appendChild(input);
+                setTimeout(() => input.focus(), 100);
+            } else if (question.type === 'date') {
+                const input = document.createElement('input');
+                input.type = 'date';
+                input.className = 'form-input';
+                input.value = formValues[question.id] || '';
+                input.required = question.required;
+                input.addEventListener('change', (e) => {
+                    formValues[question.id] = e.target.value;
+                });
+                questionContainer.appendChild(input);
+                setTimeout(() => input.focus(), 100);
+            } else if (question.type === 'textarea') {
+                const textarea = document.createElement('textarea');
+                textarea.className = 'form-textarea';
+                textarea.placeholder = '請輸入您的答案...';
+                textarea.value = formValues[question.id] || '';
+                textarea.required = question.required;
+                textarea.addEventListener('change', (e) => {
+                    formValues[question.id] = e.target.value;
+                });
+                questionContainer.appendChild(textarea);
+                setTimeout(() => textarea.focus(), 100);
+            } else if (question.type === 'radio') {
+                const optionsGroup = document.createElement('div');
+                optionsGroup.className = 'options-group';
+
+                question.options.forEach((option, optIndex) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = `q_${question.id}`;
+                    input.value = option;
+                    input.id = `q_${question.id}_${optIndex}`;
+                    input.checked = formValues[question.id] === option;
+
+                    const label = document.createElement('label');
+                    label.htmlFor = `q_${question.id}_${optIndex}`;
+                    label.textContent = option;
+
+                    optionDiv.appendChild(input);
+                    optionDiv.appendChild(label);
+
+                    input.addEventListener('change', (e) => {
+                        formValues[question.id] = e.target.value;
+                        optionsGroup.querySelectorAll('.option').forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        optionDiv.classList.add('selected');
+                    });
+
+                    if (input.checked) {
+                        optionDiv.classList.add('selected');
+                    }
+
+                    optionsGroup.appendChild(optionDiv);
+                });
+
+                questionContainer.appendChild(optionsGroup);
+            } else if (question.type === 'checkbox') {
+                const optionsGroup = document.createElement('div');
+                optionsGroup.className = 'options-group';
+
+                question.options.forEach((option, optIndex) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+
+                    const input = document.createElement('input');
+                    input.type = 'checkbox';
+                    input.name = `q_${question.id}`;
+                    input.value = option;
+                    input.id = `q_${question.id}_${optIndex}`;
+
+                    const currentValues = formValues[question.id] || [];
+                    input.checked = currentValues.includes(option);
+
+                    const label = document.createElement('label');
+                    label.htmlFor = `q_${question.id}_${optIndex}`;
+                    label.textContent = option;
+
+                    optionDiv.appendChild(input);
+                    optionDiv.appendChild(label);
+
+                    input.addEventListener('change', (e) => {
+                        const values = formValues[question.id] || [];
+                        if (e.target.checked) {
+                            if (!values.includes(option)) {
+                                values.push(option);
+                            }
+                        } else {
+                            const idx = values.indexOf(option);
+                            if (idx > -1) {
+                                values.splice(idx, 1);
+                            }
+                        }
+                        formValues[question.id] = values;
+                        if (values.length > 0) {
+                            optionDiv.classList.add('selected');
+                        } else {
+                            optionDiv.classList.remove('selected');
+                        }
+                    });
+
+                    if (input.checked) {
+                        optionDiv.classList.add('selected');
+                    }
+
+                    optionsGroup.appendChild(optionDiv);
+                });
+
+                questionContainer.appendChild(optionsGroup);
+            }
+
+            cardContent.appendChild(questionContainer);
+            updateProgress();
+        }
+
+        // Show Success Screen
+        function showSuccessScreen() {
+            const cardContent = document.getElementById('cardContent');
+            cardContent.innerHTML = `
+                <div class="success-screen show">
+                    <div class="success-icon">✓</div>
+                    <h2>感謝填寫！</h2>
+                    <p>您的答案已成功提交，我們將盡快為您進行特質分析。</p>
+                </div>
+            `;
+            document.getElementById('prevBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+        }
+
+        // Update Buttons
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            prevBtn.disabled = currentQuestionIndex === 0;
+
+            if (currentQuestionIndex === formData.questions.length - 1) {
+                nextBtn.textContent = '提交 ✓';
+            } else {
+                nextBtn.textContent = '下一題 →';
+            }
+        }
+
+        // Update Progress
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / formData.questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+        }
+
+        // Validate Current Question
+        function validateCurrentQuestion() {
+            const question = formData.questions[currentQuestionIndex];
+            if (question.required) {
+                const value = formValues[question.id];
+                if (!value || (Array.isArray(value) && value.length === 0)) {
+                    alert('請填寫此題');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Next Question
+        function nextQuestion() {
+            if (!validateCurrentQuestion()) {
+                return;
+            }
+
+            if (currentQuestionIndex === formData.questions.length - 1) {
+                submitForm();
+            } else {
+                currentQuestionIndex++;
+                renderQuestion(currentQuestionIndex);
+                updateButtons();
+            }
+        }
+
+        // Previous Question
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion(currentQuestionIndex);
+                updateButtons();
+            }
+        }
+
+        // Submit Form
+        function submitForm() {
+            const formDataObj = new FormData();
+
+            Object.keys(formValues).forEach(questionId => {
+                const value = formValues[questionId];
+                const entryId = entryMapping[questionId];
+
+                if (entryId) {
+                    if (Array.isArray(value)) {
+                        value.forEach(v => {
+                            formDataObj.append(entryId, v);
+                        });
+                    } else {
+                        formDataObj.append(entryId, value);
+                    }
+                }
+            });
+
+            fetch(formData.formResponseUrl, {
+                method: 'POST',
+                body: formDataObj,
+                mode: 'no-cors'
+            }).then(() => {
+                currentQuestionIndex = formData.questions.length;
+                renderQuestion(currentQuestionIndex);
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('提交失敗，請稍後重試');
+            });
+        }
+
+        // Event Listeners
+        document.getElementById('startBtn').addEventListener('click', startForm);
+        document.getElementById('prevBtn').addEventListener('click', prevQuestion);
+        document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+
+        // Keyboard Support
+        document.addEventListener('keydown', (e) => {
+            if (formStarted) {
+                if (e.key === 'ArrowRight') {
+                    nextQuestion();
+                } else if (e.key === 'ArrowLeft') {
+                    prevQuestion();
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

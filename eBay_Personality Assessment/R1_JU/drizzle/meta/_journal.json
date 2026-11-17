@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1786612065998,
+      "tag": "0000_parched_may_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1786612332446,
+      "tag": "0001_lovely_kat_farrell",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1786615243313,
+      "tag": "0002_illegal_colonel_america",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1786615411633,
+      "tag": "0003_tearful_kree",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1786615489186,
+      "tag": "0004_parched_siren",
+      "breakpoints": true
+    }
+  ]
+}

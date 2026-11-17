@@ -1,0 +1,60 @@
+{
+  "documentName": "Personality Analysis System - UI Design System",
+  "version": "1.0",
+  "theme": {
+    "colors": {
+      "warmCream": "#fef9f2",
+      "warmCard": "#fffdf9",
+      "warmBlue": "#789dbc",
+      "warmBlueDeep": "#577b9d",
+      "warmPink": "#ffe3e3",
+      "warmPinkDeep": "#d885a3",
+      "warmGreen": "#a8d5ba",
+      "warmInk": "#4a4a4a"
+    }
+  },
+  "frames": [
+    {
+      "name": "01_Public_Landing_Page",
+      "width": 1280,
+      "height": 800,
+      "layout": "vertical",
+      "components": [
+        {"type": "TopNav", "items": ["Brand: 自我探索所", "Admin Login Link"]},
+        {"type": "HeroSection", "layout": "grid-2-col", "left": "Title & CTA", "right": "Warm Illustration & Quote"},
+        {"type": "Footer", "items": ["Warm notice", "Privacy Link"]}
+      ]
+    },
+    {
+      "name": "02_Questionnaire_Card_View",
+      "width": 1280,
+      "height": 800,
+      "layout": "vertical",
+      "components": [
+        {"type": "FormTopbar", "items": ["Back Button", "Brand", "Counter (1/27)"]},
+        {"type": "ProgressBar", "width": "100%"},
+        {"type": "QuestionCard", "width": 680, "elements": ["Kicker", "Title", "Subtitle", "Answer Area (Input/Choice Grid)", "Navigation Buttons"]}
+      ]
+    },
+    {
+      "name": "03_Completion_Modal",
+      "width": 1280,
+      "height": 800,
+      "layout": "overlay",
+      "components": [
+        {"type": "BackdropBlur"},
+        {"type": "ModalCard", "width": 460, "elements": ["Success Icon", "Kicker", "Title: 已完成問卷，感謝您的填寫", "Description", "Return Button (with Deep Hover State)"]}
+      ]
+    },
+    {
+      "name": "04_Admin_Dashboard",
+      "width": 1280,
+      "height": 900,
+      "layout": "sidebar-main",
+      "components": [
+        {"type": "Sidebar", "items": ["Submissions", "Team & Invites", "Analytics Charts", "Deletion Requests"]},
+        {"type": "MainContent", "elements": ["Filter Bar (Search, Zodiac, Blood Type, Date)", "Data Table", "Pagination", "Export CSV Button"]}
+      ]
+    }
+  ]
+}

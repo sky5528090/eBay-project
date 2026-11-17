@@ -1,0 +1,35 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: personality-analysis-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: personality_analysis
+      MYSQL_USER: personality
+      MYSQL_PASSWORD: personality_dev_password
+      MYSQL_ROOT_PASSWORD: root_dev_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - personality_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_dev_password"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  minio:
+    image: minio/minio:latest
+    container_name: personality-analysis-storage
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: personality_admin
+      MINIO_ROOT_PASSWORD: personality_storage_password
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - personality_storage_data:/data
+volumes:
+  personality_mysql_data:
+  personality_storage_data:

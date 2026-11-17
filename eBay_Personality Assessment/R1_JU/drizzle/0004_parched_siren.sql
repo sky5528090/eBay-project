@@ -1,0 +1,1 @@
+ALTER TABLE `admin_invitations` ADD `acceptedUserId` int;

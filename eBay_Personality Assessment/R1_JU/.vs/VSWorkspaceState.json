@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\public",
+    "\\client\\src",
+    "\\client\\src\\lib",
+    "\\client\\src\\pages",
+    "\\drizzle",
+    "\\drizzle\\meta",
+    "\\drizzle\\migrations",
+    "\\patches"
+  ],
+  "SelectedNode": "\\client\\src\\pages\\Home.tsx",
+  "PreviewInSolutionExplorer": false
+}

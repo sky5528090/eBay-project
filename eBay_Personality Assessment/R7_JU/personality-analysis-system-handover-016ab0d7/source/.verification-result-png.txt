@@ -1,0 +1,4 @@
+path=/home/ubuntu/Downloads/personality-result-810001.png
+format=PNG
+size=(1170, 392)
+mode=RGBA
